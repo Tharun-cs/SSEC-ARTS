@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" width="160" height="48" fill="none">
+  <!-- Axis Bank Burgundy Polygon Symbol -->
+  <polygon points="14,36 26,12 38,36" fill="#97144D"/>
+  <polygon points="26,18 20,32 32,32" fill="#FFFFFF"/>
+  <polygon points="26,24 23,30 29,30" fill="#97144D"/>
+  <!-- Axis Bank Text -->
+  <text x="46" y="27" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="18" font-weight="900" fill="#97144D" letter-spacing="0.5">AXIS BANK</text>
+  <text x="46" y="37" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="700" fill="#666666" letter-spacing="1">RETAIL &amp; COMMERCIAL</text>
+</svg>
+
