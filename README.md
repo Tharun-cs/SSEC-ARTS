@@ -1,10 +1,9 @@
-# Sree Sakthi Engineering College — Official Institutional Website
+# Sree Sakthi College of Arts and Science — Official Institutional Website
 
-> **Institution:** Sree Sakthi Engineering College  
-> **Status:** Autonomous: Technical Campus – Karamadai  
-> **Address:** Ooty Main Road, Coimbatore – 641104, Tamil Nadu, India.  
-> **Approval:** Approved by AICTE, New Delhi  
-> **Design Architecture:** Inspired by the institutional visual experience, layout, navigation, animations, and section hierarchy of [KPRCAS](https://www.kprcas.ac.in/).
+> **Institution:** Sree Sakthi College of Arts and Science  
+> **Campus:** Elite Campus – Punjai Puliampatti, Coimbatore  
+> **Address:** Coimbatore Main Road, Sellappampalayam, Punjai Puliampatti – 641459, Tamil Nadu, India.  
+> **Approval:** UGC / AICTE Approved | Affiliated to Bharathiar University  
 
 ---
 
