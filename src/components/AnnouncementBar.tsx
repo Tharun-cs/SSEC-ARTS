@@ -1,10 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Phone, GraduationCap } from 'lucide-react';
 
 export const AnnouncementBar: React.FC = () => {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
     <div className="bg-[#CF0003] text-white border-b border-[#A50003] relative z-50 select-none text-xs sm:text-sm font-medium overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8">
@@ -32,27 +34,42 @@ export const AnnouncementBar: React.FC = () => {
             </Link>
           </div>
 
-          {/* Center: Seamless Looping Text in Regular Size with Continuous Flow */}
-          <div className="flex-1 overflow-hidden relative mx-2 sm:mx-4 select-none min-w-0 flex">
-            <div className="flex shrink-0 items-center gap-4 sm:gap-6 pr-4 sm:pr-6 animate-marquee-continuous">
-              <span className="text-white font-bold text-xs sm:text-[15px] uppercase tracking-wide whitespace-nowrap">
-                WELCOME TO SREE SAKTHI COLLEGE OF ARTS AND SCIENCE-COIMBATORE
-              </span>
-              <span className="text-[#FFCB0B] font-bold text-xs sm:text-sm shrink-0">★</span>
-              <span className="text-white font-bold text-xs sm:text-[15px] uppercase tracking-wide whitespace-nowrap">
-                WELCOME TO SREE SAKTHI COLLEGE OF ARTS AND SCIENCE-COIMBATORE
-              </span>
-              <span className="text-[#FFCB0B] font-bold text-xs sm:text-sm shrink-0">★</span>
-            </div>
-            <div className="flex shrink-0 items-center gap-4 sm:gap-6 pr-4 sm:pr-6 animate-marquee-continuous" aria-hidden="true">
-              <span className="text-white font-bold text-xs sm:text-[15px] uppercase tracking-wide whitespace-nowrap">
-                WELCOME TO SREE SAKTHI COLLEGE OF ARTS AND SCIENCE-COIMBATORE
-              </span>
-              <span className="text-[#FFCB0B] font-bold text-xs sm:text-sm shrink-0">★</span>
-              <span className="text-white font-bold text-xs sm:text-[15px] uppercase tracking-wide whitespace-nowrap">
-                WELCOME TO SREE SAKTHI COLLEGE OF ARTS AND SCIENCE-COIMBATORE
-              </span>
-              <span className="text-[#FFCB0B] font-bold text-xs sm:text-sm shrink-0">★</span>
+          {/* Center: Seamless Looping Text in Single Unified Marquee Track (Zero Collision) */}
+          <div
+            className="flex-1 overflow-hidden relative mx-2 sm:mx-4 select-none min-w-0 flex"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
+            <div
+              className={`flex items-center w-max animate-announcement-marquee ${
+                isPaused ? '[animation-play-state:paused]' : ''
+              }`}
+            >
+              {/* Set 1 */}
+              <div className="flex shrink-0 items-center gap-4 sm:gap-6 pr-6 sm:pr-8">
+                <span className="text-white font-bold text-xs sm:text-[14px] uppercase tracking-wide whitespace-nowrap">
+                  WELCOME TO SREE SAKTHI COLLEGE OF ARTS AND SCIENCE-COIMBATORE
+                </span>
+                <span className="text-[#FFCB0B] font-black text-xs sm:text-sm shrink-0">★</span>
+                <span className="text-white font-bold text-xs sm:text-[14px] uppercase tracking-wide whitespace-nowrap">
+                  ADMISSIONS OPEN 2026–2027 • APPLY NOW
+                </span>
+                <span className="text-[#FFCB0B] font-black text-xs sm:text-sm shrink-0">★</span>
+              </div>
+
+              {/* Set 2 (Exact duplicate for seamless infinite 0% -> -50% loop) */}
+              <div className="flex shrink-0 items-center gap-4 sm:gap-6 pr-6 sm:pr-8" aria-hidden="true">
+                <span className="text-white font-bold text-xs sm:text-[14px] uppercase tracking-wide whitespace-nowrap">
+                  WELCOME TO SREE SAKTHI COLLEGE OF ARTS AND SCIENCE-COIMBATORE
+                </span>
+                <span className="text-[#FFCB0B] font-black text-xs sm:text-sm shrink-0">★</span>
+                <span className="text-white font-bold text-xs sm:text-[14px] uppercase tracking-wide whitespace-nowrap">
+                  ADMISSIONS OPEN 2026–2027 • APPLY NOW
+                </span>
+                <span className="text-[#FFCB0B] font-black text-xs sm:text-sm shrink-0">★</span>
+              </div>
             </div>
           </div>
 
@@ -133,7 +150,7 @@ export const AnnouncementBar: React.FC = () => {
                 className="w-6 h-6 rounded-full bg-white/15 hover:bg-white hover:text-[#CF0003] text-white flex items-center justify-center transition-all p-1.5"
                 aria-label="Twitter"
               >
-                <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>

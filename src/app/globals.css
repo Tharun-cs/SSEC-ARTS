@@ -118,6 +118,23 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   will-change: transform;
 }
 
+/* Announcement Bar Unified Single-Track Marquee (Zero Collision / Zero Overlap) */
+@keyframes announcement-marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-announcement-marquee {
+  display: flex;
+  width: max-content;
+  animation: announcement-marquee 24s linear infinite;
+  will-change: transform;
+}
+
+.animate-announcement-marquee:hover {
+  animation-play-state: paused;
+}
+
 .animate-ticker:hover,
 .animate-marquee-loop:hover,
 .animate-marquee-continuous:hover {
