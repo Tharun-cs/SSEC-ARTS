@@ -271,7 +271,7 @@ export const OurPlacementsSection: React.FC = () => {
                 <img
                   src={rec.logo}
                   alt={`${rec.name} Official Logo`}
-                  className="max-h-11 sm:max-h-13 max-w-[130px] sm:max-w-[160px] w-auto h-auto object-contain group-hover:scale-108 transition-transform duration-300"
+                  className="max-h-11 sm:max-h-12 max-w-[130px] sm:max-w-[155px] w-auto h-auto object-contain group-hover:scale-105 transition-transform duration-300 block select-none pointer-events-none"
                   loading="lazy"
                 />
               </div>

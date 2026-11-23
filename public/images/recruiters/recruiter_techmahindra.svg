@@ -1,13 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" width="160" height="48" fill="none">
-  <!-- Tech Mahindra Red Geometric Cubes Symbol -->
-  <g transform="translate(10, 11)" fill="#E31837">
-    <rect x="0" y="0" width="10" height="10" rx="1.5"/>
-    <rect x="13" y="0" width="10" height="10" rx="1.5"/>
-    <rect x="0" y="13" width="10" height="10" rx="1.5"/>
-    <rect x="13" y="13" width="10" height="10" rx="1.5" fill="#1E293B"/>
+  <!-- Tech Mahindra Lockup - Mathematically Centered in 160x48 -->
+  <g transform="translate(14, 0)">
+    <!-- Red & Charcoal Geometric Cubes -->
+    <g transform="translate(0, 13)" fill="#E31837">
+      <rect x="0" y="0" width="10" height="10" rx="1.5"/>
+      <rect x="12" y="0" width="10" height="10" rx="1.5"/>
+      <rect x="0" y="12" width="10" height="10" rx="1.5"/>
+      <rect x="12" y="12" width="10" height="10" rx="1.5" fill="#1E293B"/>
+    </g>
+    <!-- Wordmark Line 1 -->
+    <text x="32" y="19" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="14.5" font-weight="900" dominant-baseline="central" letter-spacing="-0.3">
+      <tspan fill="#1E293B">Tech </tspan><tspan fill="#E31837">Mahindra</tspan>
+    </text>
+    <!-- Tagline Line 2 -->
+    <text x="32" y="29.5" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="6.2" font-weight="700" fill="#666666" dominant-baseline="central" letter-spacing="1">DIGITAL TRANSFORMATION</text>
   </g>
-  <!-- Tech Mahindra Wordmark -->
-  <text x="42" y="24" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="14" font-weight="900" fill="#1E293B" letter-spacing="-0.3">Tech</text>
-  <text x="76" y="24" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="14" font-weight="900" fill="#E31837" letter-spacing="-0.3">Mahindra</text>
-  <text x="42" y="36" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="7" font-weight="700" fill="#666666" letter-spacing="1">DIGITAL TRANSFORMATION</text>
 </svg>

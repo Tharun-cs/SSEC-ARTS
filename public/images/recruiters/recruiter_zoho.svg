@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" width="160" height="48" fill="none">
-  <!-- ZOHO 4 Colored Blocks Brand Iconography -->
+  <!-- ZOHO 4 Colored Toy Blocks - Perfectly Centered in 160x48 -->
   <!-- Block 1: Z (Red) -->
-  <g transform="translate(25, 12)">
+  <g transform="translate(23, 12)">
     <rect width="24" height="24" rx="4" fill="#E42528"/>
-    <text x="12" y="18" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" text-anchor="middle">Z</text>
+    <text x="12" y="12" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Z</text>
   </g>
   <!-- Block 2: O (Green) -->
-  <g transform="translate(54, 12)">
+  <g transform="translate(53, 12)">
     <rect width="24" height="24" rx="4" fill="#1DAE4D"/>
-    <text x="12" y="18" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" text-anchor="middle">O</text>
+    <text x="12" y="12" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">O</text>
   </g>
   <!-- Block 3: H (Blue) -->
   <g transform="translate(83, 12)">
     <rect width="24" height="24" rx="4" fill="#0F82C4"/>
-    <text x="12" y="18" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" text-anchor="middle">H</text>
+    <text x="12" y="12" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">H</text>
   </g>
-  <!-- Block 4: O (Yellow/Orange) -->
-  <g transform="translate(112, 12)">
+  <!-- Block 4: O (Yellow) -->
+  <g transform="translate(113, 12)">
     <rect width="24" height="24" rx="4" fill="#F6AC19"/>
-    <text x="12" y="18" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" text-anchor="middle">O</text>
+    <text x="12" y="12" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">O</text>
   </g>
 </svg>

@@ -1,10 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" width="160" height="48" fill="none">
-  <!-- ICICI Bank 'i' Emblem -->
-  <circle cx="26" cy="24" r="16" fill="#F37021"/>
-  <circle cx="26" cy="16" r="3" fill="#FFFFFF"/>
-  <path d="M24 22 L28 22 L28 32 L24 32 Z" fill="#FFFFFF"/>
-  <!-- ICICI Bank Text -->
-  <text x="50" y="27" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="18" font-weight="900" fill="#B02A30" letter-spacing="0.5">ICICI BANK</text>
-  <text x="50" y="37" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="700" fill="#F37021" letter-spacing="1">FINANCIAL SERVICES</text>
+  <!-- ICICI Bank Lockup - Symmetrically Aligned -->
+  <g transform="translate(19, 0)">
+    <!-- ICICI Emblem -->
+    <circle cx="14" cy="24" r="13" fill="#F37021"/>
+    <circle cx="14" cy="18" r="2.5" fill="#FFFFFF"/>
+    <path d="M12.5 23 L15.5 23 L15.5 30 L12.5 30 Z" fill="#FFFFFF"/>
+    <!-- ICICI Text -->
+    <text x="35" y="19" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="15" font-weight="900" fill="#B02A30" dominant-baseline="central" letter-spacing="0.5">ICICI BANK</text>
+    <text x="35" y="29.5" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="6.5" font-weight="700" fill="#F37021" dominant-baseline="central" letter-spacing="1">FINANCIAL SERVICES</text>
+  </g>
 </svg>
-

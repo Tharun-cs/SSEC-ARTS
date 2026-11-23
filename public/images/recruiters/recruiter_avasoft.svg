@@ -1,11 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" width="160" height="48" fill="none">
-  <!-- AVASOFT Geometric Ring Icon -->
-  <g transform="translate(14, 10)">
-    <circle cx="14" cy="14" r="13" stroke="#F15A24" stroke-width="2.5" fill="none" />
-    <path d="M14 1 L14 27 M1 14 L27 14" stroke="#F15A24" stroke-width="1.8" stroke-linecap="round" />
-    <circle cx="14" cy="14" r="6" fill="#F8971D" />
+  <!-- AVASOFT Lockup - Perfectly Centered in 160x48 -->
+  <g transform="translate(22, 0)">
+    <!-- Iconic Circular Compass Logo Mark -->
+    <g transform="translate(0, 12)">
+      <circle cx="12" cy="12" r="11" stroke="#F15A24" stroke-width="2" fill="none" />
+      <path d="M12 1 L12 23 M1 12 L23 12" stroke="#F15A24" stroke-width="1.6" stroke-linecap="round" />
+      <circle cx="12" cy="12" r="5" fill="#F8971D" />
+    </g>
+    <!-- AVASOFT Typography -->
+    <text x="33" y="19" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="17" font-weight="900" fill="#F15A24" dominant-baseline="central" letter-spacing="0.5">AVASOFT</text>
+    <text x="33" y="29.5" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="6.2" font-weight="800" fill="#666666" dominant-baseline="central" letter-spacing="1.2">SHAPING NEXT GEN</text>
   </g>
-  <!-- AVASOFT Wordmark -->
-  <text x="50" y="27" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="19" font-weight="900" fill="#F15A24" letter-spacing="0.5">AVASOFT</text>
-  <text x="50" y="37" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="6.5" font-weight="700" fill="#666666" letter-spacing="1.2">SHAPING NEXT GEN</text>
 </svg>
