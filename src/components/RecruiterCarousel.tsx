@@ -4,14 +4,14 @@ import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const RECRUITERS = [
-  { id: 'rec-tcs', name: 'TCS', image: '/images/recruiter_tcs.png' },
-  { id: 'rec-infosys', name: 'Infosys', image: '/images/recruiter_infosys.png' },
-  { id: 'rec-wipro', name: 'Wipro', image: '/images/recruiter_wipro.png' },
-  { id: 'rec-hcl', name: 'HCL', image: '/images/recruiter_hcl.png' },
-  { id: 'rec-accenture', name: 'Accenture', image: '/images/recruiter_accenture.png' },
-  { id: 'rec-techmahindra', name: 'Tech Mahindra', image: '/images/recruiter_techmahindra.png' },
-  { id: 'rec-cognizant', name: 'Cognizant', image: '/images/recruiter_cognizant.png' },
-  { id: 'rec-ibm', name: 'IBM', image: '/images/recruiter_ibm.png' }
+  { id: 'rec-tcs', name: 'TCS', image: '/images/recruiters/recruiter_tcs.svg' },
+  { id: 'rec-infosys', name: 'Infosys', image: '/images/recruiters/recruiter_infosys.svg' },
+  { id: 'rec-wipro', name: 'Wipro', image: '/images/recruiters/recruiter_wipro.svg' },
+  { id: 'rec-hcl', name: 'HCL', image: '/images/recruiters/recruiter_hcl.svg' },
+  { id: 'rec-accenture', name: 'Accenture', image: '/images/recruiters/recruiter_accenture.svg' },
+  { id: 'rec-techmahindra', name: 'Tech Mahindra', image: '/images/recruiters/recruiter_techmahindra.svg' },
+  { id: 'rec-cognizant', name: 'Cognizant', image: '/images/recruiters/recruiter_cognizant.svg' },
+  { id: 'rec-ibm', name: 'IBM', image: '/images/recruiters/recruiter_ibm.svg' }
 ];
 
 export const RecruiterCarousel: React.FC = () => {

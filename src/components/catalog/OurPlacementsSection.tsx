@@ -24,67 +24,67 @@ const CORPORATE_RECRUITERS: RecruiterItem[] = [
     id: 'rec-infosys',
     name: 'Infosys',
     category: 'Software Services',
-    logo: '/images/recruiters/recruiter_infosys_clean.png'
+    logo: '/images/recruiters/recruiter_infosys.svg'
   },
   {
     id: 'rec-tcs',
     name: 'TCS',
     category: 'Tata Consultancy Services',
-    logo: '/images/recruiters/recruiter_tcs_clean.png'
+    logo: '/images/recruiters/recruiter_tcs.svg'
   },
   {
     id: 'rec-avasoft',
     name: 'AVASOFT',
     category: 'Shaping Next Gen',
-    logo: '/images/recruiters/recruiter_avasoft.png'
+    logo: '/images/recruiters/recruiter_avasoft.svg'
   },
   {
     id: 'rec-zoho',
     name: 'ZOHO',
     category: 'SaaS & Enterprise Cloud',
-    logo: '/images/recruiters/recruiter_zoho.png'
+    logo: '/images/recruiters/recruiter_zoho.svg'
   },
   {
     id: 'rec-deloitte',
     name: 'Deloitte',
     category: 'Consulting & Advisory',
-    logo: '/images/recruiters/recruiter_deloitte.png'
+    logo: '/images/recruiters/recruiter_deloitte.svg'
   },
   {
     id: 'rec-wipro',
     name: 'Wipro',
     category: 'Technology Solutions',
-    logo: '/images/recruiters/recruiter_wipro.png'
+    logo: '/images/recruiters/recruiter_wipro.svg'
   },
   {
     id: 'rec-cognizant',
     name: 'Cognizant',
     category: 'Digital Engineering',
-    logo: '/images/recruiters/recruiter_cognizant.png'
+    logo: '/images/recruiters/recruiter_cognizant.svg'
   },
   {
     id: 'rec-accenture',
     name: 'Accenture',
     category: 'Strategy & Technology',
-    logo: '/images/recruiters/recruiter_accenture.png'
+    logo: '/images/recruiters/recruiter_accenture.svg'
   },
   {
     id: 'rec-ibm',
     name: 'IBM',
     category: 'Cloud & Cognitive AI',
-    logo: '/images/recruiters/recruiter_ibm.png'
+    logo: '/images/recruiters/recruiter_ibm.svg'
   },
   {
     id: 'rec-hcl',
     name: 'HCL Technologies',
     category: 'IT Infrastructure',
-    logo: '/images/recruiters/recruiter_hcl.png'
+    logo: '/images/recruiters/recruiter_hcl.svg'
   },
   {
     id: 'rec-techm',
     name: 'Tech Mahindra',
     category: 'Digital Transformation',
-    logo: '/images/recruiters/recruiter_techmahindra.png'
+    logo: '/images/recruiters/recruiter_techmahindra.svg'
   },
   {
     id: 'rec-capgemini',

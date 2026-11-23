@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" width="160" height="48" fill="none">
+  <!-- Accenture Purple Chevron '>' mark -->
+  <path d="M78 8 L85 13 L78 18" stroke="#A100FF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Accenture Wordmark -->
+  <text x="80" y="32" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="22" font-weight="800" fill="#000000" text-anchor="middle" letter-spacing="-0.5">accenture</text>
+</svg>

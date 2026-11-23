@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" width="160" height="48" fill="none">
+  <!-- Cognizant Blue 'C' Ribbon Mark -->
+  <g transform="translate(14, 12)">
+    <path d="M18 4 C8 4 2 11 2 18 C2 25 8 32 18 32 C23 32 27 29 29 26 L23 23 C22 25 19 26 17 26 C12 26 8 22 8 18 C8 14 12 10 17 10 C19 10 22 11 23 13 L29 10 C26 7 22 4 18 4 Z" fill="#0033A0"/>
+    <circle cx="21" cy="18" r="3.5" fill="#00A3E0"/>
+  </g>
+  <!-- Cognizant Wordmark -->
+  <text x="50" y="32" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#0033A0" letter-spacing="-0.3">Cognizant</text>
+</svg>
