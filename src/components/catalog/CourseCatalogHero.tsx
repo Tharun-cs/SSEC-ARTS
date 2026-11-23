@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Layers, Sparkles } from 'lucide-react';
+import { GraduationCap, Layers } from 'lucide-react';
 
 interface CourseCatalogHeroProps {
   activeLevel: 'UG' | 'PG';
@@ -104,15 +104,6 @@ export const CourseCatalogHero: React.FC<CourseCatalogHeroProps> = ({
         >
           {/* Proper, Clean Rectangular Framed Card with Rounded Corners */}
           <div className="relative w-full max-w-[460px] mx-auto lg:mx-0 rounded-2xl sm:rounded-3xl bg-white border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group select-none">
-            
-            {/* Top Badge: Floating Pill with Sparkles Icon */}
-            <div className="absolute top-3 left-3 z-20">
-              <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-xs text-[#CF0003] font-black text-[10.5px] sm:text-xs px-3 py-1 rounded-full shadow-sm border border-gray-100">
-                <Sparkles className="w-3 h-3 text-[#FFCB0B] fill-[#FFCB0B]" />
-                <span>Academic Excellence</span>
-              </span>
-            </div>
-
             {/* Students Photograph Container */}
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-50">
               <img
