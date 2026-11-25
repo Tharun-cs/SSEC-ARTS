@@ -20,8 +20,8 @@ export default function HomePage() {
       {/* 4. News & Updates Section (Immediately below Management Section - Preserved) */}
       <NewsUpdatesSection />
 
-      {/* 5. Course Catalog Section (All Programmes for Students + Institutional Stats Banner) */}
-      <CourseCatalogSection showStatsBanner={true} />
+      {/* 5. Course Catalog Section (All Programmes for Students + Institutional Stats Banner + Why Choose Us + Placements) */}
+      <CourseCatalogSection isHomePage={true} showStatsBanner={true} />
     </div>
   );
 }

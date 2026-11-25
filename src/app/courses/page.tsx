@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function CoursesPage() {
   return (
     <main className="min-h-screen bg-white">
-      <CourseCatalogSection />
+      <CourseCatalogSection isHomePage={false} />
     </main>
   );
 }
