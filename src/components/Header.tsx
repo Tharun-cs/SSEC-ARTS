@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ArrowRight, Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
@@ -13,6 +13,7 @@ export const Header: React.FC = () => {
   const [openSubmenuIndex, setOpenSubmenuIndex] = useState<number | null>(null);
   const [mobileExpandedIndex, setMobileExpandedIndex] = useState<number | null>(null);
   const [isSticky, setIsSticky] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +21,20 @@ export const Header: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setOpenSubmenuIndex(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, []);
 
   useEffect(() => {
@@ -54,11 +69,13 @@ export const Header: React.FC = () => {
           </div>
 
           {/* Center-Right: Main Navigation Links (Desktop 8 Tabs with Dividers) */}
-          <nav className="hidden xl:flex items-center h-full">
+          <nav ref={navRef} className="hidden xl:flex items-center h-full">
             {NAV_ITEMS.map((item, index) => {
               const active = isActive(item.href);
               const hasSubmenu = item.submenu && item.submenu.length > 0;
               const isLast = index === NAV_ITEMS.length - 1;
+              const isOpen = openSubmenuIndex === index;
+              const alignRight = index >= NAV_ITEMS.length - 2;
 
               return (
                 <React.Fragment key={item.title}>
@@ -67,49 +84,89 @@ export const Header: React.FC = () => {
                     onMouseEnter={() => setOpenSubmenuIndex(index)}
                     onMouseLeave={() => setOpenSubmenuIndex(null)}
                   >
-                    <Link
-                      href={item.href}
-                      className={`relative flex items-center gap-1 px-3 py-2 text-[12.5px] font-bold tracking-wide uppercase transition-colors select-none ${
-                        active
-                          ? 'text-[#CF0003]'
-                          : 'text-[#172C4F] hover:text-[#CF0003]'
-                      }`}
-                    >
-                      <span>{item.title}</span>
-                      {hasSubmenu && (
+                    {hasSubmenu ? (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setOpenSubmenuIndex((prev) => (prev === index ? null : index));
+                        }}
+                        className={`relative flex items-center gap-1 px-3 py-2 text-[12.5px] font-bold tracking-wide uppercase transition-colors select-none cursor-pointer group ${
+                          active || isOpen
+                            ? 'text-[#CF0003]'
+                            : 'text-[#172C4F] hover:text-[#CF0003]'
+                        }`}
+                        aria-expanded={isOpen}
+                        aria-haspopup="true"
+                        aria-label={`${item.title} menu`}
+                      >
+                        <span>{item.title}</span>
                         <ChevronDown
-                          className={`w-3.5 h-3.5 transition-transform duration-200 text-gray-400 group-hover:text-[#CF0003] ${
-                            openSubmenuIndex === index ? 'rotate-180 text-[#CF0003]' : ''
+                          className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                            isOpen ? 'rotate-180 text-[#CF0003]' : 'text-gray-400 group-hover:text-[#CF0003]'
                           }`}
                         />
-                      )}
-                      {/* Active State Red Underline matching design */}
-                      {active && (
-                        <span className="absolute bottom-2 left-3 right-3 h-[3px] bg-[#CF0003] rounded-full" />
-                      )}
-                    </Link>
-
-                    {/* Mega / Dropdown Submenu */}
-                    {hasSubmenu && (
-                      <div
-                        className={`absolute left-0 top-full ${
-                          item.submenu && item.submenu.length > 5 ? 'w-80' : 'w-64'
-                        } bg-white border-t-2 border-[#CF0003] shadow-xl rounded-b-md transition-all duration-150 z-50 ${
-                          openSubmenuIndex === index
-                            ? 'opacity-100 visible translate-y-0'
-                            : 'opacity-0 invisible -translate-y-1 pointer-events-none'
+                        {/* Active State Red Underline matching design */}
+                        {active && (
+                          <span className="absolute bottom-1.5 left-3 right-3 h-[3px] bg-[#CF0003] rounded-full" />
+                        )}
+                      </button>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setOpenSubmenuIndex(null)}
+                        className={`relative flex items-center gap-1 px-3 py-2 text-[12.5px] font-bold tracking-wide uppercase transition-colors select-none ${
+                          active
+                            ? 'text-[#CF0003]'
+                            : 'text-[#172C4F] hover:text-[#CF0003]'
                         }`}
                       >
-                        <div className="py-2">
-                          {item.submenu?.map((sub) => (
-                            <Link
-                              key={sub.title}
-                              href={sub.href}
-                              className="block px-4 py-2 text-xs font-semibold text-gray-700 hover:text-[#CF0003] hover:bg-red-50/60 transition-colors"
-                            >
-                              {sub.title}
-                            </Link>
-                          ))}
+                        <span>{item.title}</span>
+                        {/* Active State Red Underline matching design */}
+                        {active && (
+                          <span className="absolute bottom-1.5 left-3 right-3 h-[3px] bg-[#CF0003] rounded-full" />
+                        )}
+                      </Link>
+                    )}
+
+                    {/* Mega / Dropdown Submenu showing all pages */}
+                    {hasSubmenu && (
+                      <div
+                        className={`absolute ${alignRight ? 'right-0' : 'left-0'} top-full ${
+                          item.submenu && item.submenu.length > 5 ? 'w-76' : 'w-64'
+                        } bg-white border-t-2 border-[#CF0003] shadow-2xl rounded-b-lg transition-all duration-150 z-50 ${
+                          isOpen
+                            ? 'opacity-100 visible translate-y-0 pointer-events-auto'
+                            : 'opacity-0 invisible -translate-y-1 pointer-events-none'
+                        }`}
+                        onMouseEnter={() => setOpenSubmenuIndex(index)}
+                      >
+                        <div className="py-2 divide-y divide-gray-50/80">
+                          {item.submenu?.map((sub) => {
+                            const isSubActive = pathname === sub.href;
+                            return (
+                              <Link
+                                key={sub.title}
+                                href={sub.href}
+                                onClick={() => setOpenSubmenuIndex(null)}
+                                className={`group flex items-center justify-between px-4 py-2.5 text-xs font-semibold transition-colors ${
+                                  isSubActive
+                                    ? 'text-[#CF0003] bg-red-50/80 font-bold'
+                                    : 'text-gray-700 hover:text-[#CF0003] hover:bg-red-50/50'
+                                }`}
+                              >
+                                <span>{sub.title}</span>
+                                <ChevronRight
+                                  className={`w-3.5 h-3.5 transition-transform ${
+                                    isSubActive
+                                      ? 'text-[#CF0003]'
+                                      : 'text-gray-300 group-hover:text-[#CF0003] group-hover:translate-x-0.5'
+                                  }`}
+                                />
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -158,28 +215,31 @@ export const Header: React.FC = () => {
               return (
                 <div key={item.title} className="pt-2 pb-1.5">
                   <div className="flex items-center justify-between">
-                    <Link
-                      href={item.href}
-                      onClick={() => !hasSubmenu && setMobileMenuOpen(false)}
-                      className={`block py-1.5 text-sm font-bold uppercase tracking-wide transition-colors ${
-                        isActive(item.href) ? 'text-[#CF0003]' : 'text-[#242424] hover:text-[#CF0003]'
-                      }`}
-                    >
-                      {item.title}
-                    </Link>
-
-                    {hasSubmenu && (
+                    {hasSubmenu ? (
                       <button
+                        type="button"
                         onClick={() => toggleMobileSubmenu(idx)}
-                        className="p-2 text-gray-500 hover:text-[#CF0003] focus:outline-none"
-                        aria-label={`Toggle ${item.title} submenu`}
+                        className={`flex items-center justify-between w-full py-1.5 text-left text-sm font-bold uppercase tracking-wide transition-colors ${
+                          isActive(item.href) ? 'text-[#CF0003]' : 'text-[#242424] hover:text-[#CF0003]'
+                        }`}
                       >
+                        <span>{item.title}</span>
                         <ChevronDown
                           className={`w-4 h-4 transition-transform duration-200 ${
-                            isExpanded ? 'rotate-180 text-[#CF0003]' : ''
+                            isExpanded ? 'rotate-180 text-[#CF0003]' : 'text-gray-400'
                           }`}
                         />
                       </button>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`block py-1.5 text-sm font-bold uppercase tracking-wide transition-colors ${
+                          isActive(item.href) ? 'text-[#CF0003]' : 'text-[#242424] hover:text-[#CF0003]'
+                        }`}
+                      >
+                        {item.title}
+                      </Link>
                     )}
                   </div>
 
@@ -190,11 +250,18 @@ export const Header: React.FC = () => {
                         <Link
                           key={sub.title}
                           href={sub.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center gap-1.5 py-1 text-xs font-semibold text-gray-600 hover:text-[#CF0003] transition-colors"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setMobileExpandedIndex(null);
+                          }}
+                          className={`flex items-center justify-between py-1.5 px-2 rounded text-xs font-semibold transition-colors ${
+                            pathname === sub.href
+                              ? 'text-[#CF0003] bg-red-50 font-bold'
+                              : 'text-gray-600 hover:text-[#CF0003]'
+                          }`}
                         >
-                          <ChevronRight className="w-3 h-3 text-[#CF0003] shrink-0" />
                           <span>{sub.title}</span>
+                          <ChevronRight className="w-3 h-3 text-[#CF0003]/60 shrink-0" />
                         </Link>
                       ))}
                     </div>

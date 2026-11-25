@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import React from 'react';
+import { AboutCategoryNav } from '@/components/about/AboutCategoryNav';
 
 export const metadata: Metadata = {
   title: 'About Us | Sree Sakthi College of Arts and Science',
@@ -12,6 +13,11 @@ export default function AboutLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <AboutCategoryNav />
+      {children}
+    </>
+  );
 }
 
