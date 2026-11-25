@@ -214,3 +214,55 @@ nextjs-portal {
   animation: banner-float 9s ease-in-out infinite reverse;
 }
 
+/* ========================================================
+   SKELETON SHIMMER LOADER SYSTEM
+   ======================================================== */
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes skeleton-shimmer-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f2f3f5 0%,
+    #fafbfc 25%,
+    #e5e8ec 50%,
+    #fafbfc 75%,
+    #f2f3f5 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer-sweep 1.8s ease-in-out infinite;
+}
+
+.skeleton-shimmer-dark {
+  background: linear-gradient(
+    90deg,
+    #0F2B56 0%,
+    #18467D 25%,
+    #235c9e 50%,
+    #18467D 75%,
+    #0F2B56 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer-sweep 1.8s ease-in-out infinite;
+}
+
+.skeleton-pulse {
+  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+

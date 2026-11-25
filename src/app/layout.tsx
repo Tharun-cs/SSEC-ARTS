@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { Inter, Plus_Jakarta_Sans, Oswald } from 'next/font/google';
 import './globals.css';
@@ -5,6 +6,7 @@ import { AnnouncementBar } from '@/components/AnnouncementBar';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { BackToTopButton } from '@/components/shared/BackToTopButton';
+import { NavigationProgressBar } from '@/components/shared/NavigationProgressBar';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -83,6 +85,11 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${plusJakartaSans.variable} ${oswald.variable} h-full scroll-smooth`}>
       <body className="min-h-full flex flex-col bg-white text-[#242424] antialiased">
+        {/* Top Navigation Transition Progress Bar */}
+        <Suspense fallback={null}>
+          <NavigationProgressBar />
+        </Suspense>
+
         {/* 1. Slim Maroon Announcement Bar */}
         <AnnouncementBar />
 
