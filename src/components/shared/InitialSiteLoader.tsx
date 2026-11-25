@@ -89,7 +89,7 @@ export const InitialSiteLoader: React.FC = () => {
                 <img
                   src="/images/college_crest.png"
                   alt="Sree Sakthi"
-                  className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.08)] pointer-events-none select-none"
+                  className="w-full h-full object-contain pointer-events-none select-none"
                   draggable={false}
                 />
               </div>
@@ -106,25 +106,11 @@ export const InitialSiteLoader: React.FC = () => {
                 <img
                   src="/images/college_crest.png"
                   alt="Sree Sakthi"
-                  className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.08)] pointer-events-none select-none"
+                  className="w-full h-full object-contain pointer-events-none select-none"
                   draggable={false}
                 />
               </div>
             </motion.div>
-
-            {/* Subtle 3D Floor Shadow that naturally narrows/widens with 3D rotation */}
-            <motion.div
-              animate={{
-                scaleX: [1, 0.22, 1, 0.22, 1],
-                opacity: [0.35, 0.08, 0.35, 0.08, 0.35]
-              }}
-              transition={{
-                duration: 1.9,
-                ease: [0.45, 0.05, 0.55, 0.95],
-                repeat: 0
-              }}
-              className="mt-5 w-14 sm:w-16 h-1.5 rounded-full bg-black/25 blur-[2.5px] pointer-events-none"
-            />
           </div>
         </motion.div>
       )}
