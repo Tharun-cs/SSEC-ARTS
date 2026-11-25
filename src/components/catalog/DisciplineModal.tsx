@@ -41,6 +41,10 @@ export const DisciplineModal: React.FC<DisciplineModalProps> = ({
       (!level || c.degreeType === level)
   );
 
+  const displayTitle =
+    level === 'PG' && discipline.pgTitle ? discipline.pgTitle : discipline.title;
+  const displayImage =
+    level === 'PG' && discipline.pgImage ? discipline.pgImage : discipline.image;
   const displayDegrees =
     level === 'UG'
       ? discipline.ugDegreesDisplay
@@ -59,7 +63,7 @@ export const DisciplineModal: React.FC<DisciplineModalProps> = ({
             <span className="w-2.5 h-2.5 rounded-full bg-[#FFCB0B]" />
             <div>
               <h3 className="font-black text-base sm:text-lg tracking-tight uppercase">
-                {discipline.title} Programmes
+                {displayTitle} Programmes
               </h3>
               <p className="text-[11px] text-white/80 font-medium">
                 {displayDegrees} • Department of {discipline.title}
@@ -81,10 +85,10 @@ export const DisciplineModal: React.FC<DisciplineModalProps> = ({
           <div className="flex flex-col sm:flex-row gap-5 items-center bg-[#FFFDF8] p-4 rounded-2xl border border-amber-100">
             <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0 shadow-sm bg-gray-100">
               <picture className="w-full h-full block">
-                <source srcSet={discipline.image} type="image/webp" />
+                <source srcSet={displayImage} type="image/webp" />
                 <img
-                  src={discipline.image.replace('.webp', '.jpg')}
-                  alt={discipline.title}
+                  src={displayImage.replace('.webp', '.jpg')}
+                  alt={displayTitle}
                   className="w-full h-full object-cover"
                 />
               </picture>

@@ -26,6 +26,10 @@ export const DisciplineCard: React.FC<DisciplineCardProps> = ({
   level,
   onSelectDiscipline
 }) => {
+  const displayTitle =
+    level === 'PG' && discipline.pgTitle ? discipline.pgTitle : discipline.title;
+  const displayImage =
+    level === 'PG' && discipline.pgImage ? discipline.pgImage : discipline.image;
   const degreesText =
     level === 'UG'
       ? discipline.ugDegreesDisplay
@@ -64,10 +68,10 @@ export const DisciplineCard: React.FC<DisciplineCardProps> = ({
       {/* 1. Left: Discipline Photograph */}
       <div className="w-[34%] sm:w-[36%] aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 shrink-0 relative shadow-2xs">
         <picture className="w-full h-full block">
-          <source srcSet={discipline.image} type="image/webp" />
+          <source srcSet={displayImage} type="image/webp" />
           <img
-            src={discipline.image.replace('.webp', '.jpg')}
-            alt={discipline.title}
+            src={displayImage.replace('.webp', '.jpg')}
+            alt={displayTitle}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
@@ -84,9 +88,12 @@ export const DisciplineCard: React.FC<DisciplineCardProps> = ({
             {renderIcon()}
           </div>
 
-          {/* Department Title */}
-          <h3 className="text-xs sm:text-[13px] lg:text-sm font-black text-[#171717] group-hover:text-[#CF0003] transition-colors leading-tight line-clamp-1">
-            {discipline.title}
+          {/* Department / Programme Title */}
+          <h3
+            className="text-xs sm:text-[13px] lg:text-sm font-black text-[#171717] group-hover:text-[#CF0003] transition-colors leading-tight line-clamp-2"
+            title={displayTitle}
+          >
+            {displayTitle}
           </h3>
 
           {/* Available Degrees Subtitle */}

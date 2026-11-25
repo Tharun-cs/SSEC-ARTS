@@ -118,7 +118,7 @@ export const CourseCatalogSection: React.FC<CourseCatalogSectionProps> = ({
           onDepartmentChange={setSelectedDepartment}
           selectedDegree={selectedDegree}
           onDegreeChange={setSelectedDegree}
-          onSearchSubmit={() => {}}
+          onSearchSubmit={() => { }}
           onResetFilters={handleResetFilters}
           resultsCount={filteredDisciplines.length}
           totalCount={DISCIPLINE_CATEGORIES.length}
