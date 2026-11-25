@@ -5,9 +5,6 @@ import { CourseCatalogHero } from './CourseCatalogHero';
 import { CourseSearchFilter } from './CourseSearchFilter';
 import { DisciplineGrid } from './DisciplineGrid';
 import { DisciplineModal } from './DisciplineModal';
-import { WhyChooseUs } from './WhyChooseUs';
-import { CourseStatsBanner } from './CourseStatsBanner';
-import { OurPlacementsSection } from './OurPlacementsSection';
 import {
   DISCIPLINE_CATEGORIES,
   ALL_COURSES,
@@ -19,10 +16,7 @@ interface CourseCatalogSectionProps {
   showStatsBanner?: boolean;
 }
 
-export const CourseCatalogSection: React.FC<CourseCatalogSectionProps> = ({
-  showWhyChooseUs = false,
-  showStatsBanner = true
-}) => {
+export const CourseCatalogSection: React.FC<CourseCatalogSectionProps> = () => {
   const [activeLevel, setActiveLevel] = useState<'UG' | 'PG'>('UG');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState('');
@@ -103,7 +97,7 @@ export const CourseCatalogSection: React.FC<CourseCatalogSectionProps> = ({
         </svg>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-8 sm:pb-12">
         {/* 1. Asymmetric Hero Section with interactive UG / PG Tabs */}
         <CourseCatalogHero
           activeLevel={activeLevel}
@@ -131,41 +125,6 @@ export const CourseCatalogSection: React.FC<CourseCatalogSectionProps> = ({
           onSelectDiscipline={setActiveDiscipline}
           onResetFilters={handleResetFilters}
         />
-      </div>
-
-      {/* 2. RIGHT-SIDE YELLOW BORDER SWOOSH (Positioned on right side, UPPER / ABOVE the banner) */}
-      <div className="w-full flex justify-end pointer-events-none select-none z-0 -mt-2 sm:-mt-3 mb-3 sm:mb-4">
-        <div className="w-36 sm:w-48 md:w-56 lg:w-64 max-h-[44px] sm:max-h-[50px]">
-          <svg
-            viewBox="0 0 240 50"
-            fill="none"
-            className="w-full h-auto block"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M240,0 C220,25 150,42 0,50 L240,50 Z"
-              fill="#FFCB0B"
-            />
-          </svg>
-        </div>
-      </div>
-
-      {/* 3. Institutional Academic Milestones & Key Statistics Banner */}
-      {showStatsBanner && (
-        <div className="mt-6 sm:mt-8 md:mt-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <CourseStatsBanner />
-        </div>
-      )}
-
-      {/* 4. Why Choose Sree Sakthi (SSEC) Section (includes 'Find the Right Programme for Your Future' Banner) */}
-      <div className="mt-8 sm:mt-10 md:mt-12 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <WhyChooseUs />
-      </div>
-
-      {/* 5. Our Placements & Recruiters Section (Positioned Directly Below the 'Find the Right Programme' Banner) */}
-      <div className="mt-8 sm:mt-10 md:mt-12 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <OurPlacementsSection />
       </div>
 
       {/* Interactive Discipline Programmes Modal */}

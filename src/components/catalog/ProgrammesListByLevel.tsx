@@ -15,8 +15,6 @@ import {
 import { ALL_COURSES, CourseDetail, DISCIPLINE_CATEGORIES, DisciplineItem } from '@/data/courseCatalogData';
 import { DisciplineGrid } from './DisciplineGrid';
 import { DisciplineModal } from './DisciplineModal';
-import { OurPlacementsSection } from './OurPlacementsSection';
-import { WhyChooseUs } from './WhyChooseUs';
 
 interface ProgrammesListByLevelProps {
   level: 'UG' | 'PG';
@@ -352,17 +350,7 @@ export const ProgrammesListByLevel: React.FC<ProgrammesListByLevelProps> = ({
         )}
       </section>
 
-      {/* 5. WHY CHOOSE SSEC SECTION */}
-      <div className="mt-12 sm:mt-16 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <WhyChooseUs />
-      </div>
-
-      {/* 6. OUR PLACEMENTS & RECRUITERS */}
-      <div className="mt-10 sm:mt-14 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <OurPlacementsSection />
-      </div>
-
-      {/* 7. BOTTOM ADMISSIONS CALLOUT */}
+      {/* 5. BOTTOM ADMISSIONS CALLOUT */}
       <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-18">
         <div className="bg-gradient-to-r from-[#CF0003] to-[#8C0002] rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
           <div className="absolute right-0 top-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-[#FFCB0B]/15 blur-2xl pointer-events-none" />
