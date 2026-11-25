@@ -17,13 +17,21 @@ import { DisciplineItem } from '@/data/courseCatalogData';
 
 interface DisciplineCardProps {
   discipline: DisciplineItem;
+  level?: 'UG' | 'PG';
   onSelectDiscipline?: (discipline: DisciplineItem) => void;
 }
 
 export const DisciplineCard: React.FC<DisciplineCardProps> = ({
   discipline,
+  level,
   onSelectDiscipline
 }) => {
+  const degreesText =
+    level === 'UG'
+      ? discipline.ugDegreesDisplay
+      : level === 'PG'
+      ? discipline.pgDegreesDisplay
+      : discipline.degreesDisplay;
   const renderIcon = () => {
     const iconClass = 'w-4 h-4 sm:w-4.5 sm:h-4.5 text-white';
     switch (discipline.iconType) {
@@ -83,7 +91,7 @@ export const DisciplineCard: React.FC<DisciplineCardProps> = ({
 
           {/* Available Degrees Subtitle */}
           <p className="text-[10px] sm:text-[11px] text-gray-500 font-semibold mt-0.5 line-clamp-1">
-            {discipline.degreesDisplay}
+            {degreesText}
           </p>
         </div>
 

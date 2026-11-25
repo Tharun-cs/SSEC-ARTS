@@ -9,12 +9,14 @@ interface DisciplineModalProps {
   isOpen: boolean;
   onClose: () => void;
   discipline: DisciplineItem | null;
+  level?: 'UG' | 'PG';
 }
 
 export const DisciplineModal: React.FC<DisciplineModalProps> = ({
   isOpen,
   onClose,
-  discipline
+  discipline,
+  level
 }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -33,8 +35,18 @@ export const DisciplineModal: React.FC<DisciplineModalProps> = ({
   if (!isOpen || !discipline) return null;
 
   const relevantCourses = ALL_COURSES.filter(
-    (c) => c.disciplineId === discipline.id && c.isPublished
+    (c) =>
+      c.disciplineId === discipline.id &&
+      c.isPublished &&
+      (!level || c.degreeType === level)
   );
+
+  const displayDegrees =
+    level === 'UG'
+      ? discipline.ugDegreesDisplay
+      : level === 'PG'
+      ? discipline.pgDegreesDisplay
+      : discipline.degreesDisplay;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
@@ -50,7 +62,7 @@ export const DisciplineModal: React.FC<DisciplineModalProps> = ({
                 {discipline.title} Programmes
               </h3>
               <p className="text-[11px] text-white/80 font-medium">
-                {discipline.degreesDisplay} • Department of {discipline.title}
+                {displayDegrees} • Department of {discipline.title}
               </p>
             </div>
           </div>

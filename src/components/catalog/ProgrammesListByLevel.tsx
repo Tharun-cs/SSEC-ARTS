@@ -6,16 +6,17 @@ import {
   GraduationCap,
   Layers,
   Search,
-  Filter,
   Clock,
   CheckCircle,
-  Briefcase,
   ArrowRight,
   BookOpen,
-  Sparkles,
   ChevronRight
 } from 'lucide-react';
-import { ALL_COURSES, CourseDetail, DISCIPLINE_CATEGORIES } from '@/data/courseCatalogData';
+import { ALL_COURSES, CourseDetail, DISCIPLINE_CATEGORIES, DisciplineItem } from '@/data/courseCatalogData';
+import { DisciplineGrid } from './DisciplineGrid';
+import { DisciplineModal } from './DisciplineModal';
+import { OurPlacementsSection } from './OurPlacementsSection';
+import { WhyChooseUs } from './WhyChooseUs';
 
 interface ProgrammesListByLevelProps {
   level: 'UG' | 'PG';
@@ -30,6 +31,12 @@ export const ProgrammesListByLevel: React.FC<ProgrammesListByLevelProps> = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDiscipline, setSelectedDiscipline] = useState('');
+  const [activeDisciplineModal, setActiveDisciplineModal] = useState<DisciplineItem | null>(null);
+
+  // Available disciplines for this level
+  const availableDisciplines = useMemo(() => {
+    return DISCIPLINE_CATEGORIES.filter((disc) => disc.availableLevels.includes(level));
+  }, [level]);
 
   // Filter courses by level, discipline, and search query
   const filteredCourses = useMemo(() => {
@@ -57,11 +64,6 @@ export const ProgrammesListByLevel: React.FC<ProgrammesListByLevelProps> = ({
       return true;
     });
   }, [level, selectedDiscipline, searchTerm]);
-
-  // Available disciplines for this level
-  const availableDisciplines = useMemo(() => {
-    return DISCIPLINE_CATEGORIES.filter((disc) => disc.availableLevels.includes(level));
-  }, [level]);
 
   const otherLevel = level === 'UG' ? 'PG' : 'UG';
   const otherLevelLabel = level === 'UG' ? 'Postgraduate (PG)' : 'Undergraduate (UG)';
@@ -140,8 +142,34 @@ export const ProgrammesListByLevel: React.FC<ProgrammesListByLevelProps> = ({
         </div>
       </section>
 
-      {/* 2. SEARCH & DISCIPLINE FILTER BAR */}
-      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 -mt-5 relative z-20">
+      {/* 2. THE 8 DISCIPLINE CARDS GRID SPECIFICALLY FOR THIS LEVEL (UG OR PG) */}
+      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12">
+        <div className="mb-5 sm:mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-200/80 pb-3">
+          <div>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-black text-[#171717] tracking-tight">
+              {level === 'UG' ? 'Undergraduate Disciplines & Degree Streams' : 'Postgraduate Disciplines & Degree Streams'}
+            </h2>
+            <p className="text-xs sm:text-[13px] text-gray-500 mt-0.5">
+              {level === 'UG'
+                ? 'All 8 academic disciplines offering 3-year bachelor degree courses.'
+                : 'All 8 academic disciplines offering 2-year advanced master degree courses.'}
+            </p>
+          </div>
+          <div className="text-xs font-bold text-[#CF0003] shrink-0">
+            {availableDisciplines.length} Disciplines Available
+          </div>
+        </div>
+
+        {/* 8 Discipline Cards in 4 Desktop Columns × 2 Rows matching the user reference */}
+        <DisciplineGrid
+          disciplines={availableDisciplines}
+          level={level}
+          onSelectDiscipline={(disc) => setActiveDisciplineModal(disc)}
+        />
+      </section>
+
+      {/* 3. SEARCH & DISCIPLINE FILTER BAR FOR PROGRAMMES */}
+      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-16">
         <div className="bg-white rounded-2xl border border-gray-200/90 shadow-md p-3.5 sm:p-5 flex flex-col md:flex-row items-center gap-3 sm:gap-4">
           {/* Keyword Search */}
           <div className="relative flex-1 w-full">
@@ -216,8 +244,8 @@ export const ProgrammesListByLevel: React.FC<ProgrammesListByLevelProps> = ({
         </div>
       </section>
 
-      {/* 3. COURSES CARDS GRID */}
-      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12">
+      {/* 4. DETAILED PROGRAMME CARDS */}
+      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-8">
         {filteredCourses.length === 0 ? (
           <div className="bg-white rounded-2xl border border-gray-200 p-12 text-center max-w-lg mx-auto space-y-4">
             <div className="w-12 h-12 rounded-full bg-red-50 text-[#CF0003] flex items-center justify-center mx-auto">
@@ -324,7 +352,17 @@ export const ProgrammesListByLevel: React.FC<ProgrammesListByLevelProps> = ({
         )}
       </section>
 
-      {/* 4. BOTTOM ADMISSIONS CALLOUT */}
+      {/* 5. WHY CHOOSE SSEC SECTION */}
+      <div className="mt-12 sm:mt-16 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <WhyChooseUs />
+      </div>
+
+      {/* 6. OUR PLACEMENTS & RECRUITERS */}
+      <div className="mt-10 sm:mt-14 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <OurPlacementsSection />
+      </div>
+
+      {/* 7. BOTTOM ADMISSIONS CALLOUT */}
       <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-18">
         <div className="bg-gradient-to-r from-[#CF0003] to-[#8C0002] rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
           <div className="absolute right-0 top-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-[#FFCB0B]/15 blur-2xl pointer-events-none" />
@@ -357,6 +395,14 @@ export const ProgrammesListByLevel: React.FC<ProgrammesListByLevelProps> = ({
           </div>
         </div>
       </section>
+
+      {/* Interactive Discipline Programmes Modal */}
+      <DisciplineModal
+        isOpen={Boolean(activeDisciplineModal)}
+        onClose={() => setActiveDisciplineModal(null)}
+        discipline={activeDisciplineModal}
+        level={level}
+      />
     </div>
   );
 };

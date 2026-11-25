@@ -6,6 +6,8 @@ export interface DisciplineItem {
   iconType: 'monitor' | 'barChart' | 'chess' | 'flask' | 'book' | 'cpu' | 'sigma' | 'leaf';
   iconBg: 'red' | 'yellow';
   degreesDisplay: string;
+  ugDegreesDisplay: string;
+  pgDegreesDisplay: string;
   availableLevels: ('UG' | 'PG')[];
   departmentSlug: string;
   programmesCount: number;
@@ -44,6 +46,8 @@ export const DISCIPLINE_CATEGORIES: DisciplineItem[] = [
     iconType: 'monitor',
     iconBg: 'red',
     degreesDisplay: 'B.Sc. | BCA | M.Sc.',
+    ugDegreesDisplay: 'B.Sc. | BCA',
+    pgDegreesDisplay: 'M.Sc.',
     availableLevels: ['UG', 'PG'],
     departmentSlug: 'computer-science',
     programmesCount: 3,
@@ -58,6 +62,8 @@ export const DISCIPLINE_CATEGORIES: DisciplineItem[] = [
     iconType: 'barChart',
     iconBg: 'yellow',
     degreesDisplay: 'B.Com. | M.Com.',
+    ugDegreesDisplay: 'B.Com.',
+    pgDegreesDisplay: 'M.Com.',
     availableLevels: ['UG', 'PG'],
     departmentSlug: 'commerce-computer-applications',
     programmesCount: 2,
@@ -72,6 +78,8 @@ export const DISCIPLINE_CATEGORIES: DisciplineItem[] = [
     iconType: 'chess',
     iconBg: 'red',
     degreesDisplay: 'BBA | MBA',
+    ugDegreesDisplay: 'BBA',
+    pgDegreesDisplay: 'MBA',
     availableLevels: ['UG', 'PG'],
     departmentSlug: 'management-studies',
     programmesCount: 2,
@@ -86,6 +94,8 @@ export const DISCIPLINE_CATEGORIES: DisciplineItem[] = [
     iconType: 'flask',
     iconBg: 'yellow',
     degreesDisplay: 'B.Sc. | M.Sc.',
+    ugDegreesDisplay: 'B.Sc.',
+    pgDegreesDisplay: 'M.Sc.',
     availableLevels: ['UG', 'PG'],
     departmentSlug: 'science',
     programmesCount: 2,
@@ -100,6 +110,8 @@ export const DISCIPLINE_CATEGORIES: DisciplineItem[] = [
     iconType: 'book',
     iconBg: 'yellow',
     degreesDisplay: 'B.A. | M.A.',
+    ugDegreesDisplay: 'B.A.',
+    pgDegreesDisplay: 'M.A.',
     availableLevels: ['UG', 'PG'],
     departmentSlug: 'english',
     programmesCount: 2,
@@ -114,6 +126,8 @@ export const DISCIPLINE_CATEGORIES: DisciplineItem[] = [
     iconType: 'cpu',
     iconBg: 'red',
     degreesDisplay: 'B.Sc. (IT) | M.Sc. (IT)',
+    ugDegreesDisplay: 'B.Sc. (IT)',
+    pgDegreesDisplay: 'M.Sc. (IT)',
     availableLevels: ['UG', 'PG'],
     departmentSlug: 'information-technology',
     programmesCount: 2,
@@ -128,6 +142,8 @@ export const DISCIPLINE_CATEGORIES: DisciplineItem[] = [
     iconType: 'sigma',
     iconBg: 'yellow',
     degreesDisplay: 'B.Sc. | M.Sc.',
+    ugDegreesDisplay: 'B.Sc.',
+    pgDegreesDisplay: 'M.Sc.',
     availableLevels: ['UG', 'PG'],
     departmentSlug: 'mathematics',
     programmesCount: 2,
@@ -142,6 +158,8 @@ export const DISCIPLINE_CATEGORIES: DisciplineItem[] = [
     iconType: 'leaf',
     iconBg: 'red',
     degreesDisplay: 'B.Sc. | M.Sc.',
+    ugDegreesDisplay: 'B.Sc.',
+    pgDegreesDisplay: 'M.Sc.',
     availableLevels: ['UG', 'PG'],
     departmentSlug: 'science',
     programmesCount: 2,

@@ -8,12 +8,14 @@ import { BookOpen, RotateCcw } from 'lucide-react';
 
 interface DisciplineGridProps {
   disciplines: DisciplineItem[];
+  level?: 'UG' | 'PG';
   onSelectDiscipline?: (discipline: DisciplineItem) => void;
   onResetFilters?: () => void;
 }
 
 export const DisciplineGrid: React.FC<DisciplineGridProps> = ({
   disciplines,
+  level,
   onSelectDiscipline,
   onResetFilters
 }) => {
@@ -61,6 +63,7 @@ export const DisciplineGrid: React.FC<DisciplineGridProps> = ({
         >
           <DisciplineCard
             discipline={discipline}
+            level={level}
             onSelectDiscipline={onSelectDiscipline}
           />
         </motion.div>

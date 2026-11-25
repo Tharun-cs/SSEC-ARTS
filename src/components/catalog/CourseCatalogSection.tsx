@@ -127,6 +127,7 @@ export const CourseCatalogSection: React.FC<CourseCatalogSectionProps> = ({
         {/* 3. Programmes by Discipline (4 Desktop Columns × 2 Rows) */}
         <DisciplineGrid
           disciplines={filteredDisciplines}
+          level={activeLevel}
           onSelectDiscipline={setActiveDiscipline}
           onResetFilters={handleResetFilters}
         />
@@ -172,6 +173,7 @@ export const CourseCatalogSection: React.FC<CourseCatalogSectionProps> = ({
         isOpen={Boolean(activeDiscipline)}
         onClose={() => setActiveDiscipline(null)}
         discipline={activeDiscipline}
+        level={activeLevel}
       />
     </section>
   );
