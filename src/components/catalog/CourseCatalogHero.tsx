@@ -93,26 +93,6 @@ export const CourseCatalogHero: React.FC<CourseCatalogHeroProps> = ({
               <span>Postgraduate Programmes (PG)</span>
             </motion.button>
           </motion.div>
-
-          {/* Quick Links to Dedicated Separate Pages */}
-          <div className="flex items-center gap-3 mt-3 text-xs text-gray-500 font-semibold">
-            <span>Direct pages:</span>
-            <a
-              href="/courses/ug"
-              className="text-[#CF0003] hover:underline inline-flex items-center gap-0.5 font-bold"
-            >
-              <span>UG Page</span>
-              <span>→</span>
-            </a>
-            <span>•</span>
-            <a
-              href="/courses/pg"
-              className="text-[#CF0003] hover:underline inline-flex items-center gap-0.5 font-bold"
-            >
-              <span>PG Page</span>
-              <span>→</span>
-            </a>
-          </div>
         </motion.div>
 
         {/* RIGHT SIDE: 3 Students Photo in a Clean, Proper Framed Card Shape */}
