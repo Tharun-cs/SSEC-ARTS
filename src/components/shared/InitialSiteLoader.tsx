@@ -111,6 +111,16 @@ export const InitialSiteLoader: React.FC = () => {
                 />
               </div>
             </motion.div>
+
+            {/* Straight-Line Loading Bar Below Logo */}
+            <div className="mt-6 w-28 sm:w-32 h-[2.5px] bg-gray-100 rounded-full overflow-hidden">
+              <motion.div
+                initial={{ width: '0%' }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 1.85, ease: [0.4, 0.0, 0.2, 1] }}
+                className="h-full bg-gradient-to-r from-[#CF0003] to-[#FFCB0B] rounded-full"
+              />
+            </div>
           </div>
         </motion.div>
       )}
