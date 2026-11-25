@@ -7,6 +7,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { BackToTopButton } from '@/components/shared/BackToTopButton';
 import { NavigationProgressBar } from '@/components/shared/NavigationProgressBar';
+import { InitialSiteLoader } from '@/components/shared/InitialSiteLoader';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -85,6 +86,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${plusJakartaSans.variable} ${oswald.variable} h-full scroll-smooth`}>
       <body className="min-h-full flex flex-col bg-white text-[#242424] antialiased">
+        {/* Full-Page Entrance Loading Screen */}
+        <InitialSiteLoader />
+
         {/* Top Navigation Transition Progress Bar */}
         <Suspense fallback={null}>
           <NavigationProgressBar />
