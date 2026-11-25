@@ -666,8 +666,8 @@ export const NAV_ITEMS = [
     href: '/courses',
     submenu: [
       { title: 'All Programmes Catalog', href: '/courses' },
-      { title: 'Undergraduate Programmes (UG)', href: '/courses#course-catalog' },
-      { title: 'Postgraduate Programmes (PG)', href: '/courses#course-catalog' },
+      { title: 'Undergraduate Programmes (UG)', href: '/courses/ug' },
+      { title: 'Postgraduate Programmes (PG)', href: '/courses/pg' },
       { title: 'Department Directory', href: '/departments' }
     ]
   },

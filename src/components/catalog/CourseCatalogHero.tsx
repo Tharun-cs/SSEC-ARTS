@@ -66,7 +66,7 @@ export const CourseCatalogHero: React.FC<CourseCatalogHeroProps> = ({
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => onSelectLevel('UG')}
-              className={`inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-extrabold text-xs sm:text-sm transition-all duration-200 shadow-sm active:scale-98 ${
+              className={`inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-extrabold text-xs sm:text-sm transition-all duration-200 shadow-sm active:scale-98 cursor-pointer ${
                 activeLevel === 'UG'
                   ? 'bg-[#CF0003] text-white shadow-md'
                   : 'bg-white text-gray-800 border-2 border-gray-200 hover:border-[#FFCB0B] hover:text-[#CF0003]'
@@ -82,7 +82,7 @@ export const CourseCatalogHero: React.FC<CourseCatalogHeroProps> = ({
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => onSelectLevel('PG')}
-              className={`inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-extrabold text-xs sm:text-sm transition-all duration-200 shadow-sm active:scale-98 ${
+              className={`inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-extrabold text-xs sm:text-sm transition-all duration-200 shadow-sm active:scale-98 cursor-pointer ${
                 activeLevel === 'PG'
                   ? 'bg-[#CF0003] text-white shadow-md'
                   : 'bg-white text-gray-800 border-2 border-gray-200 hover:border-[#FFCB0B] hover:text-[#CF0003]'
@@ -93,6 +93,26 @@ export const CourseCatalogHero: React.FC<CourseCatalogHeroProps> = ({
               <span>Postgraduate Programmes (PG)</span>
             </motion.button>
           </motion.div>
+
+          {/* Quick Links to Dedicated Separate Pages */}
+          <div className="flex items-center gap-3 mt-3 text-xs text-gray-500 font-semibold">
+            <span>Direct pages:</span>
+            <a
+              href="/courses/ug"
+              className="text-[#CF0003] hover:underline inline-flex items-center gap-0.5 font-bold"
+            >
+              <span>UG Page</span>
+              <span>→</span>
+            </a>
+            <span>•</span>
+            <a
+              href="/courses/pg"
+              className="text-[#CF0003] hover:underline inline-flex items-center gap-0.5 font-bold"
+            >
+              <span>PG Page</span>
+              <span>→</span>
+            </a>
+          </div>
         </motion.div>
 
         {/* RIGHT SIDE: 3 Students Photo in a Clean, Proper Framed Card Shape */}
